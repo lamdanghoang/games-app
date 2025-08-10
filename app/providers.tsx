@@ -30,7 +30,7 @@ export function Providers(props: { children: ReactNode }) {
     <WagmiProvider config={wagmiConfig}>
       <MiniKitProvider
         apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
-        chain={baseSepolia}
+        chain={base}
         config={{
           appearance: {
             mode: "auto",
