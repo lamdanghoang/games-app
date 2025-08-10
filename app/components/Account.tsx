@@ -5,7 +5,7 @@ import {
   useSlotMachineContract,
   useTotalPendingRewards,
 } from "@/hooks/useSlotMachineContract";
-import { formatEther } from "viem";
+import { formatEth } from "@/lib/utils";
 import { useAccount } from "wagmi";
 
 export default function Account() {
@@ -36,7 +36,7 @@ export default function Account() {
             BALANCE
           </div>
           <div className="text-lg font-mono px-3 py-1 text-gray-50">
-            {accountBalance.toLocaleString()} ETH
+            {formatEth(accountBalance)} ETH
           </div>
         </div>
 
@@ -45,7 +45,7 @@ export default function Account() {
             PENDING
           </div>
           <div className="text-orange-300 text-lg font-mono bg-black/50 rounded px-3 py-1 text-gray-50">
-            {formatEther(totalPendingRewards).toLocaleString()} ETH
+            {formatEth(totalPendingRewards)} ETH
           </div>
         </div>
 

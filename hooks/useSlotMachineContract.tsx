@@ -13,6 +13,7 @@ import {
 import { SLOT_MACHINE_CONTRACT } from "@/constants/contract";
 import { useCallback, useEffect, useState } from "react";
 import { formatEther, decodeEventLog, parseAbiItem } from "viem";
+import { formatEth } from "@/lib/utils";
 import { PendingReward, SpinResult } from "@/types";
 
 // Utility function to decode events from logs
@@ -461,7 +462,7 @@ export function useContractBalance() {
       const rawBalance = await publicClient.getBalance({
         address: SLOT_MACHINE_CONTRACT.address,
       });
-      setBalance(formatEther(rawBalance));
+      setBalance(formatEth(rawBalance));
     } catch (err) {
       console.error("Failed to fetch balance:", err);
     }
@@ -664,7 +665,7 @@ export function useCurrentAccountBalance() {
   });
 
   return {
-    balance: formatEther(data?.value || BigInt("0")), // BigInt balance in wei
+    balance: formatEth(data?.value || BigInt("0")), // BigInt balance in wei
     symbol: data?.symbol,
     isLoading,
     refetch,
@@ -737,10 +738,10 @@ export function useCasinoStats() {
     | undefined;
 
   return {
-    balance: stats ? formatEther(stats[0]) : "0", // Contract balance in ETH
+    balance: stats ? formatEth(stats[0]) : "0", // Contract balance in ETH
     totalSpins: stats ? Number(stats[1]) : 0, // Total spins
-    totalWagered: stats ? formatEther(stats[2]) : "0", // Total wagered in ETH
-    totalPayouts: stats ? formatEther(stats[3]) : "0", // Total payouts in ETH
+    totalWagered: stats ? formatEth(stats[2]) : "0", // Total wagered in ETH
+    totalPayouts: stats ? formatEth(stats[3]) : "0", // Total payouts in ETH
     jackpotHits: stats ? Number(stats[4]) : 0, // Total jackpot hits
     isActive: stats ? stats[5] : false, // Casino status
     isLoading,
@@ -766,13 +767,13 @@ export function usePlayerStats() {
 
   return {
     totalSpins: stats ? Number(stats[0]) : 0,
-    totalWagered: stats ? formatEther(stats[1]) : "0",
-    totalWon: stats ? formatEther(stats[2]) : "0",
-    biggestWin: stats ? formatEther(stats[3]) : "0",
+    totalWagered: stats ? formatEth(stats[1]) : "0",
+    totalWon: stats ? formatEth(stats[2]) : "0",
+    biggestWin: stats ? formatEth(stats[3]) : "0",
     lastPlayTime: stats ? Number(stats[4]) : 0,
     winRate: stats
       ? Number(stats[2]) > 0
-        ? (Number(formatEther(stats[2])) / Number(formatEther(stats[1]))) * 100
+        ? (Number(formatEth(stats[2])) / Number(formatEth(stats[1]))) * 100
         : 0
       : 0,
     isLoading,
@@ -810,7 +811,7 @@ export function useLatestWin() {
 
     latestWin = {
       spinId: Number(sortedRewards[0].spinId),
-      amount: formatEther(sortedRewards[0].amount),
+      amount: formatEth(sortedRewards[0].amount),
       timestamp: Number(sortedRewards[0].timestamp),
       reel1: Number(sortedRewards[0].reel1),
       reel2: Number(sortedRewards[0].reel2),
