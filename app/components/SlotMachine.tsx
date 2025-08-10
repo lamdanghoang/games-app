@@ -44,7 +44,7 @@ const createReelSymbols = (symbols: string[], count = 30): string[] => {
 export default function SlotMachine() {
   const [showWinFlash, setShowWinFlash] = useState(false);
   const [winMessage, setWinMessage] = useState<string>("");
-  const [bet, setBet] = useState("0.001");
+  const [bet, setBet] = useState("0.0001");
 
   // State to hold the symbols for each reel
   const [reelSymbols, setReelSymbols] = useState<string[][]>([
@@ -249,7 +249,7 @@ export default function SlotMachine() {
         <div className="bg-gradient-to-b from-yellow-500 to-yellow-600 rounded-2xl p-4 mb-6 border-4 border-yellow-700 shadow-inner">
           <div className="text-center">
             <div className="text-2xl font-bold text-black text-nowrap">
-              GAME POOL: {Number(poolBalance).toFixed(5)} ETH
+              POOL: {Number(poolBalance).toFixed(5)} ETH
             </div>
           </div>
         </div>
