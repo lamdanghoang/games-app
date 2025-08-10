@@ -11,7 +11,7 @@ import { useAccount } from "wagmi";
 export default function Account() {
   const { totalPendingRewards } = useTotalPendingRewards();
   const { balance: accountBalance } = useCurrentAccountBalance();
-  const { totalSpins, totalWagered, totalWon } = usePlayerStats();
+  const { totalSpins } = usePlayerStats();
   const { address } = useAccount();
 
   const { handleClaimAll, isClaiming } = useSlotMachineContract();
@@ -47,24 +47,6 @@ export default function Account() {
           </div>
           <div className="text-orange-300 text-lg font-mono rounded px-3 py-1 text-gray-50">
             {totalSpins.toLocaleString()}
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <div className="text-gray-200 text-sm font-semibold tracking-wider">
-            TOTAL BETS
-          </div>
-          <div className="text-orange-300 text-lg font-mono rounded px-3 py-1 text-gray-50">
-            {Number(totalWagered).toFixed(5)} ETH
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <div className="text-gray-200 text-sm font-semibold tracking-wider">
-            TOTAL WON
-          </div>
-          <div className="text-orange-300 text-lg font-mono rounded px-3 py-1 text-gray-50">
-            {Number(totalWon).toFixed(5)} ETH
           </div>
         </div>
 
