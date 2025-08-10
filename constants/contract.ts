@@ -7,7 +7,7 @@ export interface ContractConfig {
 }
 
 export const SLOT_MACHINE_CONTRACT: ContractConfig = {
-  address: "0x3f4B9a4973a18b69880600Fd782B6EbeFe8bcFbc",
+  address: "0x0CA215cD2822169a4C87F81d2b878190f6F09651",
   abi: [
     {
       inputs: [],
