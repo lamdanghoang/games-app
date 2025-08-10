@@ -263,12 +263,12 @@ export default function SlotMachine() {
               </div>
               <div className="text-yellow-300 text-2xl font-mono bg-black/50 rounded px-2 text-nowrap">
                 <span>{Number(accountBalance).toFixed(5)}</span>
-                <span className="ml-1 text-sm">ETH</span>
+                {/* <span className="ml-1 text-sm">ETH</span> */}
               </div>
             </div>
             <div>
               <div className="text-yellow-400 text-sm font-bold tracking-wider">
-                WIN
+                LASTEST WIN
               </div>
               <div
                 className={`text-2xl font-mono bg-black/50 rounded px-2 text-nowrap ${
@@ -278,9 +278,9 @@ export default function SlotMachine() {
                 }`}
               >
                 <span>
-                  {latestWin ? Number(latestWin.amount).toFixed(3) : "0"}
+                  {latestWin ? Number(latestWin.amount).toFixed(5) : "0"}
                 </span>
-                <span className="ml-1 text-sm">ETH</span>
+                {/* <span className="ml-1 text-sm">ETH</span> */}
               </div>
             </div>
           </div>
