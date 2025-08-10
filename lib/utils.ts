@@ -6,10 +6,7 @@ import { formatEther } from "viem";
  * @param maxDecimals - Maximum decimal places to show (default: 4)
  * @returns Formatted ETH string
  */
-export function formatEth(
-  amount: bigint | string,
-  maxDecimals: number = 4,
-): string {
+export function formatEth(amount: bigint | string): string {
   let ethAmount: string;
 
   if (typeof amount === "bigint") {
