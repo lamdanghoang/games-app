@@ -1,7 +1,6 @@
 "use client";
 
 import { useCasinoStats } from "@/hooks/useSlotMachineContract";
-import { formatEth } from "@/lib/utils";
 
 export default function Statics() {
   const {
@@ -29,7 +28,7 @@ export default function Statics() {
             GAME POOL
           </div>
           <div className="text-lg font-mono px-3 py-1 text-gray-50">
-            {formatEth(balance)} ETH
+            {Number(balance).toFixed(5)} ETH
           </div>
         </div>
 
@@ -47,7 +46,7 @@ export default function Statics() {
             TOTAL BETS
           </div>
           <div className="text-orange-300 text-lg font-mono rounded px-3 py-1 text-gray-50">
-            {formatEth(totalWagered)} ETH
+            {Number(totalWagered).toFixed(5)} ETH
           </div>
         </div>
 
@@ -56,7 +55,7 @@ export default function Statics() {
             TOTAL PAYOUTS
           </div>
           <div className="text-orange-300 text-lg font-mono rounded px-3 py-1 text-gray-50">
-            {formatEth(totalPayouts)} ETH
+            {Number(totalPayouts).toFixed(5)} ETH
           </div>
         </div>
 

@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { SpinResult } from "@/types";
 import { formatEther, parseEther } from "viem";
-import { formatEth } from "@/lib/utils";
 import {
   useContractBalance,
   useCurrentAccountBalance,
@@ -250,7 +249,7 @@ export default function SlotMachine() {
         <div className="bg-gradient-to-b from-yellow-500 to-yellow-600 rounded-2xl p-4 mb-6 border-4 border-yellow-700 shadow-inner">
           <div className="text-center">
             <div className="text-2xl font-bold text-black text-nowrap">
-              GAME POOL: {formatEth(poolBalance)} ETH
+              GAME POOL: {Number(poolBalance).toFixed(5)} ETH
             </div>
           </div>
         </div>
@@ -263,7 +262,7 @@ export default function SlotMachine() {
                 BALANCE
               </div>
               <div className="text-yellow-300 text-2xl font-mono bg-black/50 rounded px-2 text-nowrap">
-                <span>{formatEth(accountBalance)}</span>
+                <span>{Number(accountBalance).toFixed(5)}</span>
                 <span className="ml-1 text-sm">ETH</span>
               </div>
             </div>
@@ -278,7 +277,9 @@ export default function SlotMachine() {
                     : "text-yellow-300"
                 }`}
               >
-                <span>{latestWin ? formatEth(latestWin.amount) : "0"}</span>
+                <span>
+                  {latestWin ? Number(latestWin.amount).toFixed(3) : "0"}
+                </span>
                 <span className="ml-1 text-sm">ETH</span>
               </div>
             </div>
