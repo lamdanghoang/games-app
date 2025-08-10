@@ -2,7 +2,6 @@
 
 import {
   useCurrentAccountBalance,
-  usePlayerStats,
   useSlotMachineContract,
   useTotalPendingRewards,
 } from "@/hooks/useSlotMachineContract";
@@ -11,7 +10,6 @@ import { useAccount } from "wagmi";
 export default function Account() {
   const { totalPendingRewards } = useTotalPendingRewards();
   const { balance: accountBalance } = useCurrentAccountBalance();
-  const { totalSpins } = usePlayerStats();
   const { address } = useAccount();
 
   const { handleClaimAll, isClaiming } = useSlotMachineContract();
@@ -43,15 +41,6 @@ export default function Account() {
 
         <div className="flex justify-between items-center">
           <div className="text-gray-200 text-sm font-semibold tracking-wider">
-            TOTAL SPINS
-          </div>
-          <div className="text-orange-300 text-lg font-mono rounded px-3 py-1 text-gray-50">
-            {totalSpins.toLocaleString()}
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <div className="text-gray-200 text-sm font-semibold tracking-wider">
             PENDING
           </div>
           <div className="text-orange-300 text-lg font-mono bg-black/50 rounded px-3 py-1 text-gray-50">
@@ -60,7 +49,6 @@ export default function Account() {
         </div>
 
         {/* Claim Button */}
-
         <div className="mt-4">
           {totalPendingRewards > BigInt(0) ? (
             <button
