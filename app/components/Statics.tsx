@@ -1,3 +1,5 @@
+"use client";
+
 import { useCasinoStats } from "@/hooks/useSlotMachineContract";
 
 export default function Statics() {
